@@ -1,0 +1,56 @@
+[project]
+name = "jobradar"
+version = "0.1.0"
+description = "AI Job Radar: a single-user Telegram job-search assistant with grounded matching and approval-gated applications"
+authors = [
+    { name = "Muhammed Farag", email = "mohamed.frage19@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastembed>=0.9.1",
+    "google-api-python-client>=2.201.0",
+    "google-auth>=2.62.1",
+    "google-auth-oauthlib>=1.5.0",
+    "groq>=1.7.0",
+    "httpx>=0.28.1",
+    "numpy>=2.5.4",
+    "pydantic>=2.14.3",
+    "pydantic-settings>=2.16.2",
+    "pypdf>=7.0.0",
+    "python-docx>=1.2.0",
+    "python-telegram-bot>=22.8",
+    "telethon>=1.45.0",
+]
+
+[project.scripts]
+jobradar = "jobradar.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.9.8,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+    "ruff>=0.17.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101", "S608"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]
+# long regex literals read better unbroken
+"src/jobradar/{enrich/extract,apply/routing,match/explain,rag/chunk}.py" = ["E501"]

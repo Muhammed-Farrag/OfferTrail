@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# Secrets and personal data — never commit
+.env
+data/
+*.session
+*.session-journal
+client_secret*.json
+token*.json
+*.sqlite3
+*.db

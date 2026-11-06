@@ -1,0 +1,15 @@
+{
+  "full_name": null,
+  "residence_country": "EG",
+  "citizenship": ["EG"],
+  "target_families": ["ai_ml", "genai", "research_eng"],
+  "include_internships": true,
+  "include_evaluation_gigs": false,
+  "include_data_science": false,
+  "max_years_experience": 2,
+  "languages": null,
+  "work_modes": ["remote", "hybrid", "onsite"],
+  "require_sponsorship_abroad": true,
+  "open_to_relocation": true,
+  "notify_mode": "instant"
+}
